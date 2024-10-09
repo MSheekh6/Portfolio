@@ -466,12 +466,6 @@ img {
     column-gap: 2rem;
     align-items: center;
     text-align: initial;
-    .skills__img{
-      width: 90%;
-      height: auto;
-      margin: 0 auto;
-      display: block;
-    }
   }
   .work__container {
     grid-template-columns: repeat(3, 1fr);
