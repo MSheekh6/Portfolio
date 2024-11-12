@@ -181,6 +181,13 @@
                         <textarea id="message" placeholder="Please enter your message here" cols="30" rows="10" class="contact__input" required></textarea>
                         <button type="submit" class="contact__button button">Submit</button>
                     </form>
+
+                    <div id="form-message" class="form-message" style="display: none;">
+                        Your message has been sent successfully!
+                    </div>
+                    <div id="form-message-error" class="form-message-error" style="display: none;">
+                        Failed to send message. Please try again later.
+                    </div>
                 </div>
             </section>
         </main>
@@ -224,11 +231,22 @@
 
                 emailjs.send('service_b7ojsbg', 'template_gvy570e', templateParams)
                     .then(function(response) {
+                        document.getElementById('form-message').style.display = 'none';
+                        const successMessage = document.getElementById('form-message');
+                        successMessage.style.display = 'block';
+                        setTimeout(function() {
+                            successMessage.style.display = 'none';
+                        }, 3000);
                         console.log('SUCCESS!', response.status, response.text);
                         document.getElementById('contact-form').reset();
                     })
                     .catch(function(error) {
-                        alert('Failed to send message. Please try again later.');
+                        document.getElementById('form-message').style.display = 'none';
+                        const errorMessage = document.getElementById('form-message-error');
+                        errorMessage.style.display = 'block';
+                        setTimeout(function() {
+                            errorMessage.style.display = 'none';
+                        }, 3000);
                         console.error('EmailJS Error:', error);
                     });
             });
