@@ -224,7 +224,6 @@
 
                 emailjs.send('service_b7ojsbg', 'template_gvy570e', templateParams)
                     .then(function(response) {
-                        alert('Message sent successfully!');
                         console.log('SUCCESS!', response.status, response.text);
                         document.getElementById('contact-form').reset();
                     })
