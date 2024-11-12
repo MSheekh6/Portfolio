@@ -10,7 +10,7 @@
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
         <title>Portfolio website complete</title>
-        <link rel="icon" href="iconport.png" type="image/png>
+        <link rel="icon" href="iconport.png" type="image/png">
     </head>
     <body>
         <!--===== HEADER =====-->
@@ -201,6 +201,39 @@
         <script src="https://unpkg.com/scrollreveal"></script>
 
         <!--===== MAIN JS =====-->
-        <script src="main.js"></script>
+        <script src="main.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script>
+            (function() {
+                emailjs.init("TlqvezdqFyvv2HxZK"); 
+            })();
+
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+
+   
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                const templateParams = {
+                    from_name: name,
+                    from_email: email,
+                    message: message
+                };
+
+                emailjs.send('service_b7ojsbg', 'template_igbzz3c', templateParams)
+                    .then(function(response) {
+                        alert('Message sent successfully!');
+                        console.log('SUCCESS!', response.status, response.text);
+                        document.getElementById('contact-form').reset();
+                    })
+                    .catch(function(error) {
+                        alert('Failed to send message. Please try again later.');
+                        console.error('EmailJS Error:', error);
+                    });
+            });
+
+        </script>
     </body>
 </html>
