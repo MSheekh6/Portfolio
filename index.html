@@ -175,11 +175,11 @@
                 <h2 class="section-title">Contact</h2>
 
                 <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-                        <textarea name="" placeholder="Please enter your message here" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Submit" class="contact__button button">
+                    <form id="contact-form" class="contact__form">
+                        <input type="text" id="name" placeholder="Name" class="contact__input" required>
+                        <input type="email" id="email" placeholder="Email" class="contact__input" required>
+                        <textarea id="message" placeholder="Please enter your message here" cols="30" rows="10" class="contact__input" required></textarea>
+                        <button type="submit" class="contact__button button">Submit</button>
                     </form>
                 </div>
             </section>
