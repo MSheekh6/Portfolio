@@ -333,11 +333,11 @@ img {
 }
 
 .work_link a {
-  position: absolute;                
-  left: 50%; 
-  top: 110%
-  transform: translate(-50%, -50%); 
-  text-align: center; 
+  position: absolute;
+  left: 50%;
+  top: 110%; /* Adjust this value to create space */
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 
