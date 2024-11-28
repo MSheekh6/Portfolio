@@ -234,8 +234,14 @@ img {
   box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
 }
 
-.link_contact{
+.button-link {
+  display: block;
   text-align: center;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 /* ===== ABOUT =====*/
