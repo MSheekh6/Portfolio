@@ -234,10 +234,8 @@ img {
   box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
 }
 
-.button2{
-  background-color: var(--first-color);
-  color: #fff;
-  
+.link_contact{
+  text-align: center;
 }
 
 /* ===== ABOUT =====*/
