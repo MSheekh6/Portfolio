@@ -237,12 +237,11 @@ img {
 .button-link {
   display: block;
   text-align: center;
-  padding: 10px 20px;
   background-color: #007bff;
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
-  position: absolute;
+  
 }
 
 /* ===== ABOUT =====*/
