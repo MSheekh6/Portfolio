@@ -334,10 +334,10 @@ img {
 
 .work_link a {
   position: absolute;                
-  left: 50%;            
+  left: 50%; 
+  top: 110%
   transform: translate(-50%, -50%); 
   text-align: center; 
-  padding-top: 10px;
 }
 
 
