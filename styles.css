@@ -242,6 +242,7 @@ img {
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
+  position: absolute;
 }
 
 /* ===== ABOUT =====*/
