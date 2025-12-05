@@ -11,6 +11,40 @@ const showMenu = (toggleId, navId) =>{
 }
 showMenu('nav-toggle','nav-menu')
 
+/*==================== DARK/LIGHT THEME ====================*/
+const themeButton = document.getElementById('theme-button')
+const themeIcon = document.getElementById('theme-icon')
+const darkTheme = 'dark-theme'
+const iconMoon = 'bx-moon'
+const iconSun = 'bx-sun'
+
+// Previously selected theme (if user selected)
+const selectedTheme = localStorage.getItem('selected-theme')
+const selectedIcon = localStorage.getItem('selected-icon')
+
+// We obtain the current theme that the interface has by validating the dark-theme class
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+const getCurrentIcon = () => themeIcon.classList.contains(iconMoon) ? 'bx-moon' : 'bx-sun'
+
+// We validate if the user previously chose a topic
+if (selectedTheme) {
+  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+  themeIcon.classList[selectedTheme === 'dark' ? 'remove' : 'add'](iconMoon)
+  themeIcon.classList[selectedTheme === 'dark' ? 'add' : 'remove'](iconSun)
+}
+
+// Activate / deactivate the theme manually with the button
+themeButton.addEventListener('click', () => {
+    // Add or remove the dark / icon theme
+    document.body.classList.toggle(darkTheme)
+    themeIcon.classList.toggle(iconMoon)
+    themeIcon.classList.toggle(iconSun)
+    // We save the theme and the current icon that the user chose
+    localStorage.setItem('selected-theme', getCurrentTheme())
+    localStorage.setItem('selected-icon', getCurrentIcon())
+})
+
 /*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll('.nav__link')
 
