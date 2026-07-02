@@ -98,7 +98,7 @@ if (navTyped) {
     const firstPart = 'Mohammed'
     const separator = ' // '
     const secondPart = 'Full Stack Developer'
-    const finalText = `${firstPart}${separator}${secondPart}`
+    const finalText = firstPart + separator + secondPart
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
     if (prefersReducedMotion) {
@@ -130,7 +130,7 @@ if (navTyped) {
 
         typeText(firstPart, firstSpeed, () => {
             setTimeout(() => {
-                typeText(`${separator}${secondPart}`, secondSpeed)
+                typeText(separator + secondPart, secondSpeed)
             }, phasePause)
         })
     }

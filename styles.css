@@ -328,9 +328,6 @@ img {
   text-transform: lowercase;
   transition: 0.3s;
 }
-.button::before {
-  content: "$ ";
-}
 .button:hover {
   box-shadow: 0px 10px 36px var(--shadow-color);
 }
