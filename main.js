@@ -90,3 +90,48 @@ sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img',{delay: 400
 sr.reveal('.home__social-icon',{ interval: 200}); 
 sr.reveal('.work__img, .contact__input',{interval: 200});
 sr.reveal('#frontend .skills__data',{interval: 200}); 
+
+/*===== NAVBAR TERMINAL TYPING =====*/
+const navTyped = document.getElementById('nav-typed')
+
+if (navTyped) {
+    const firstPart = 'Mohammed'
+    const separator = ' // '
+    const secondPart = 'Full Stack Developer'
+    const finalText = `${firstPart}${separator}${secondPart}`
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (prefersReducedMotion) {
+        navTyped.textContent = finalText
+    } else {
+        let index = 0
+        const firstSpeed = 95
+        const secondSpeed = 70
+        const phasePause = 650
+
+        const typeText = (text, speed, done) => {
+            let i = 0
+
+            const tick = () => {
+                if (i < text.length) {
+                    navTyped.textContent += text.charAt(i)
+                    i += 1
+                    setTimeout(tick, speed)
+                    return
+                }
+
+                if (done) {
+                    done()
+                }
+            }
+
+            tick()
+        }
+
+        typeText(firstPart, firstSpeed, () => {
+            setTimeout(() => {
+                typeText(`${separator}${secondPart}`, secondSpeed)
+            }, phasePause)
+        })
+    }
+}

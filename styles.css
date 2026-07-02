@@ -1,5 +1,5 @@
 /*===== GOOGLE FONTS =====*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap");
 /*===== VARIABLES CSS =====*/
 :root {
   --header-height: 3rem;
@@ -21,6 +21,7 @@
   --shadow-color: rgba(14, 36, 49, 0.15);
   /*===== Fuente y tipografia =====*/
   --body-font: "Poppins", sans-serif;
+  --terminal-font: "JetBrains Mono", monospace;
   --big-font-size: 2rem;
   --h2-font-size: 1.25rem;
   --normal-font-size: .938rem;
@@ -99,6 +100,10 @@ img {
 .section-title {
   position: relative;
   font-size: var(--h2-font-size);
+  font-family: var(--terminal-font);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
   color: var(--first-color);
   margin-top: var(--mb-2);
   margin-bottom: var(--mb-4);
@@ -180,7 +185,37 @@ img {
   background-color: var(--first-color);
 }
 .nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--terminal-font);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
   color: var(--text-color);
+}
+.nav__logo-shell {
+  color: var(--first-color);
+}
+.nav__logo-stage {
+  position: relative;
+  display: inline-block;
+}
+.nav__logo-live {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.nav__logo-reserve {
+  visibility: hidden;
+}
+.nav__cursor {
+  color: var(--first-color);
+  animation: terminal-cursor-blink 1s step-end infinite;
+}
+.nav__link {
+  font-family: var(--terminal-font);
 }
 .nav__toggle {
   color: var(--text-color);
@@ -232,8 +267,27 @@ img {
   align-self: center;
 }
 .home__title {
+  font-family: var(--terminal-font);
+  font-weight: 700;
+  letter-spacing: 0.02em;
   font-size: var(--big-font-size);
   margin-bottom: var(--mb-5);
+}
+.home__data h2,
+.about__subtitle,
+.skills__subtitle,
+.skills__tab,
+.skills__name,
+.skills__percentage,
+.contact__input,
+.button,
+.footer__title {
+  font-family: var(--terminal-font);
+}
+
+.skills__name::before {
+  content: "> ";
+  color: var(--first-color);
 }
 .home__title-color {
   color: var(--first-color);
@@ -273,7 +327,12 @@ img {
   padding: 0.75rem 2.5rem;
   font-weight: var(--font-semi);
   border-radius: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
   transition: 0.3s;
+}
+.button::before {
+  content: "$ ";
 }
 .button:hover {
   box-shadow: 0px 10px 36px var(--shadow-color);
@@ -604,6 +663,21 @@ body.dark-theme .footer {
     transition: opacity 0.3s ease;
 }
 
+@keyframes terminal-cursor-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__cursor {
+    animation: none;
+  }
+}
+
 @media screen and (min-width: 768px) {
   body {
     margin: 0;
@@ -621,6 +695,9 @@ body.dark-theme .footer {
   }
   .nav {
     height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav__logo {
+    font-size: 0.95rem;
   }
   .nav__list {
     display: flex;
